@@ -1,0 +1,39 @@
+.bottom-nav{
+
+position:fixed;
+
+bottom:0;
+
+left:0;
+
+right:0;
+
+height:65px;
+
+background:white;
+
+display:none;
+
+justify-content:space-around;
+
+align-items:center;
+
+box-shadow:0 -3px 8px rgba(0,0,0,.08);
+
+z-index:999;
+
+}
+
+.bottom-nav a{
+
+font-size:28px;
+
+color:#510400;
+
+}
+
+.bottom-nav a.active{
+
+color:black;
+
+}

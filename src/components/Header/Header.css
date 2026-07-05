@@ -1,0 +1,70 @@
+.header{
+
+height:70px;
+
+ background: linear-gradient(
+    90deg,
+    #F8F3EE 0%,      /* Warm Cream */
+    #D6B0A5 45%,     /* Light Dusty Maroon */
+    #510400 100%     /* Deep Maroon */
+  );
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+padding:0 25px;
+border-bottom:1px solid #E5D6D0;
+
+box-shadow:0 2px 8px rgba(81,4,0,.08);
+
+position:sticky;
+
+top:0;
+
+z-index:100;
+
+}
+
+.left{
+
+display:flex;
+
+align-items:center;
+
+gap:15px;
+
+}
+
+.menu{
+
+font-size:28px;
+
+cursor:pointer;
+
+color:#510400;
+
+}
+
+.header-title{
+
+color:#510400;
+
+font-size:24px;
+
+font-weight:700;
+
+}
+
+.project{
+
+padding:10px 18px;
+
+background:#510400;
+
+color:white;
+
+border-radius:10px;
+
+}
