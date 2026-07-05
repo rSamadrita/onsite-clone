@@ -19,7 +19,9 @@ const Sidebar = () => {
 
   return (
     <div className={`sidebar ${sidebarOpen ? "open" : ""}`}>
-      <div className="logo">OnSite</div>
+      <div className="logo">
+        {/* OnSite */}
+        </div>
 
       <nav>
         <NavLink to="/" onClick={() => dispatch(closeSidebar())}>

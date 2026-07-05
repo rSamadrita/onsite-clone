@@ -4,9 +4,9 @@ height:70px;
 
  background: linear-gradient(
     90deg,
-    #F8F3EE 0%,      /* Warm Cream */
-    #D6B0A5 45%,     /* Light Dusty Maroon */
-    #510400 100%     /* Deep Maroon */
+    #6fb8f8 0%,      /* Warm Cream */
+    #c9d3e7 45%,     /* Light Dusty Maroon */
+    #0e2368 100%     /* Deep Maroon */
   );
 display:flex;
 
@@ -43,13 +43,13 @@ font-size:28px;
 
 cursor:pointer;
 
-color:#510400;
+color:rgb(1, 18, 117);
 
 }
 
 .header-title{
 
-color:#510400;
+color:rgb(1, 18, 117);
 
 font-size:24px;
 

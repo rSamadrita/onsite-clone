@@ -10,7 +10,12 @@ width:260px;
 
 height:100vh;
 
-background:#510400;
+  background: linear-gradient(
+    135deg,
+    #0e2368 0%,
+    #c9d3e7 55%,
+    #6fb8f8 100%    
+  );
 
 display:flex;
 
@@ -33,7 +38,7 @@ align-items:center;
 font-size:28px;
 
 font-weight:bold;
-
+color: #03163f;
 border-bottom:1px solid rgba(255,255,255,.2);
 
 }
