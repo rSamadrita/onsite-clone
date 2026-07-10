@@ -94,17 +94,17 @@ const Dashboard = () => {
         QUICK ACTIONS + ACTIVITY
       ========================== */}
 
-        <div className="dashboard-middle">
+        {/* <div className="dashboard-middle"> */}
           {/* LEFT */}
 
-          <section className="quick-actions">
-            <div className="section-heading">
+          {/* <section className="quick-actions"> */}
+            {/* <div className="section-heading">
               <h2>Quick Actions</h2>
 
               <p>Jump to frequently used modules</p>
-            </div>
+            </div> */}
 
-            <div className="quick-grid">
+            {/* <div >
               <QuickActionCard
                 title="Party"
                 subtitle="Clients & Vendors"
@@ -139,12 +139,12 @@ const Dashboard = () => {
                 color="#9B51E0"
                 icon={<MdPayments />}
               />
-            </div>
-          </section>
+            </div> */}
+          {/* </section> */}
 
           {/* RIGHT */}
 
-          <aside className="activity-panel">
+          {/* <aside className="activity-panel">
             <div className="section-heading">
               <h2>Recent Activity</h2>
 
@@ -182,8 +182,8 @@ const Dashboard = () => {
                 </div>
               </div>
             </div>
-          </aside>
-        </div>
+          </aside> */}
+        {/* </div> */}
 
         {/* =========================
           RECENT PROJECTS

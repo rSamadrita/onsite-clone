@@ -9,7 +9,6 @@ import { HiArrowRight } from "react-icons/hi2";
 import {
   MdLocationOn,
   MdCalendarToday,
-  MdCurrencyRupee,
 } from "react-icons/md";
 
 const ProjectCard = ({ project, onDelete }) => {
@@ -38,7 +37,6 @@ const ProjectCard = ({ project, onDelete }) => {
   return (
     <div
       className="project-card"
-      onClick={handleNavigate}
     >
       {/* Header */}
 
@@ -54,7 +52,9 @@ const ProjectCard = ({ project, onDelete }) => {
 
           <div className="address">
             <MdLocationOn />
-            <span>{project.address}</span>
+            <p style={{ textOverflow: "ellipsis", overflow: "hidden", whiteSpace: "nowrap" }}>
+              {project.address}
+            </p>
           </div>
 
         </div>
@@ -124,7 +124,8 @@ const ProjectCard = ({ project, onDelete }) => {
 
           </div>
 
-        </div>
+        </div> 
+        <HiArrowRight onClick={handleNavigate} color="white" size={24}/>
 
       </div>
 

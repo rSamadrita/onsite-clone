@@ -1,0 +1,237 @@
+/* ==========================================
+   OVERLAY
+========================================== */
+
+.party-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: overlayFade .25s ease;
+}
+
+@keyframes overlayFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ==========================================
+   MODAL
+========================================== */
+
+.party-modal {
+  width: 900px;
+  max-width: 95%;
+  background: #fff;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 30px 70px rgba(15, 23, 42, .25);
+  animation: modalUp .28s ease;
+}
+
+@keyframes modalUp {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.modal-header {
+  padding: 28px 34px;
+  border-bottom: 1px solid #edf2f7;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: linear-gradient(
+    135deg,
+    #4f46e5,
+    #6ea8ff
+  );
+  color: white;
+}
+
+.modal-header h2 {
+  font-size: 28px;
+  margin-bottom: 6px;
+}
+
+.modal-header p {
+  opacity: .9;
+  font-size: 14px;
+}
+
+.modal-header button {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,.15);
+  color: white;
+  cursor: pointer;
+  font-size: 20px;
+  transition: .25s;
+}
+
+.modal-header button:hover {
+  background: rgba(255,255,255,.3);
+}
+
+/* ==========================================
+   FORM
+========================================== */
+
+.party-form {
+  padding: 34px;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 24px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.field.full {
+  grid-column: 1 / -1;
+}
+
+.field label {
+  font-size: 14px;
+  color: #475569;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  border: 1px solid #dbe3ef;
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-size: 15px;
+  outline: none;
+  transition: .25s;
+  resize: none;
+  font-family: inherit;
+}
+
+.field input:focus,
+.field textarea:focus,
+.field select:focus {
+  border-color: #4f46e5;
+  background: white;
+  box-shadow: 0 0 0 4px rgba(79,70,229,.12);
+}
+
+.field textarea {
+  min-height: 110px;
+}
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+.modal-footer {
+  padding: 24px 34px;
+  border-top: 1px solid #edf2f7;
+  display: flex;
+  justify-content: flex-end;
+  gap: 14px;
+}
+
+.cancel-btn,
+.save-btn {
+  border: none;
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: .25s;
+}
+
+.cancel-btn {
+  background: #eef2f7;
+  color: #475569;
+}
+
+.cancel-btn:hover {
+  background: #dde5ef;
+}
+
+.save-btn {
+  background: linear-gradient(
+    135deg,
+    #4f46e5,
+    #6ea8ff
+  );
+  color: white;
+}
+
+.save-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(79,70,229,.25);
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width:900px) {
+
+  .party-modal {
+    width: 95%;
+    max-height: 92vh;
+    overflow-y: auto;
+  }
+
+  .party-form {
+    grid-template-columns: 1fr;
+  }
+
+  .field.full {
+    grid-column: auto;
+  }
+
+}
+
+@media (max-width:600px) {
+
+  .modal-header {
+    padding: 22px;
+  }
+
+  .party-form {
+    padding: 22px;
+  }
+
+  .modal-footer {
+    padding: 20px;
+    flex-direction: column;
+  }
+
+  .cancel-btn,
+  .save-btn {
+    width: 100%;
+  }
+
+}

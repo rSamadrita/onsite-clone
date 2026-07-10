@@ -1,0 +1,298 @@
+/* ===========================
+   PROJECT OVERVIEW
+=========================== */
+
+.project-overview {
+  padding: 32px;
+  background: #f4f7fc;
+  min-height: 100vh;
+}
+
+/* ===========================
+   HEADER
+=========================== */
+
+.overview-header {
+  background: linear-gradient(135deg, #0e2368 0%, #5d8ff0 55%, #6fb8f8 100%);
+  border-radius: 20px;
+  padding: 32px 34px;
+  color: #fff;
+  margin-bottom: 24px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+  position: relative;
+  overflow: hidden;
+}
+
+.overview-header::after {
+  content: "";
+  position: absolute;
+  right: -70px;
+  top: -70px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.overview-header h1 {
+  font-size: 34px;
+  font-weight: 700;
+  margin: 14px 0;
+}
+
+.overview-header p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  opacity: 0.95;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 18px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(10px);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+}
+
+/* ===========================
+   INFO GRID
+=========================== */
+
+.overview-info-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  margin-bottom: 30px;
+}
+
+.info-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 22px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+  transition: 0.25s ease;
+  border: 1px solid #ececec;
+}
+
+.info-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.09);
+}
+
+.info-card svg {
+  font-size: 30px;
+  color: #510400;
+  min-width: 30px;
+}
+
+.info-card span {
+  display: block;
+  color: #98a2b3;
+  font-size: 12px;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.info-card h3 {
+  font-size: 16px;
+  color: #101828;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.overview-two-column {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+/* ===========================
+   QUICK ACTIONS
+=========================== */
+
+.quick-actions {
+  background: #fff;
+  border-radius: 20px;
+  padding: 24px 26px;
+  margin-bottom: 24px;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+  border: 1px solid #ececec;
+}
+
+.quick-actions h2 {
+  color: #101828;
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+
+.quick-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 18px;
+}
+
+.quick-grid button {
+  border: 1px solid #ececec;
+  background: #f7f8fb;
+  color: #510400;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 14px;
+  padding: 16px 14px;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.quick-grid button:hover {
+  background: #f1e7e2;
+  transform: translateY(-3px);
+}
+
+/* ===========================
+   KPI CARDS
+=========================== */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 30px;
+}
+
+.stat-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 24px;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+  border: 1px solid #ececec;
+  transition: 0.25s ease;
+  color: #101828;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+}
+
+.stat-card svg {
+  font-size: 38px;
+  color: #510400;
+  margin-bottom: 14px;
+}
+
+.stat-card h2 {
+  font-size: 14px;
+  color: #667085;
+  margin-bottom: 10px;
+}
+
+.stat-card h1 {
+  font-size: 36px;
+  color: #101828;
+}
+
+/* ===========================
+   RECENT ACTIVITY
+=========================== */
+
+.recent-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 24px 26px;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+  border: 1px solid #ececec;
+}
+
+.recent-card h2 {
+  font-size: 20px;
+  color: #101828;
+  margin-bottom: 16px;
+}
+
+.recent-card p {
+  color: #667085;
+  font-size: 14px;
+}
+
+/* ===========================
+   NOT FOUND
+=========================== */
+
+.project-not-found {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  font-size: 28px;
+  font-weight: 600;
+  color: #64748b;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media (max-width: 1200px) {
+  .overview-info-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .quick-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .project-overview {
+    padding: 20px;
+  }
+
+  .overview-header {
+    padding: 28px;
+  }
+
+  .overview-two-column {
+    grid-template-columns: 1fr;
+  }
+
+  .overview-header h1 {
+    font-size: 28px;
+  }
+
+  .overview-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quick-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .quick-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .info-card {
+    padding: 20px;
+  }
+
+  .stat-card {
+    padding: 22px;
+  }
+}

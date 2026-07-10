@@ -8,7 +8,7 @@ import Attendance from "../pages/Attendance/Attendance";
 import Tasks from "../pages/Tasks/Tasks";
 import Materials from "../pages/Materials/Materials";
 import Settings from "../pages/Settings/Settings";
-import ProjectDetails from "../pages/ProjectDetails/ProjectDetails";
+import ProjectOverview from "../pages/Project/ProjectOverview";
 
 const withLayout = (PageComponent) => (
   <Layout>
@@ -26,7 +26,7 @@ const AppRoutes = () => {
       <Route path="/tasks" element={withLayout(Tasks)} />
       <Route path="/materials" element={withLayout(Materials)} />
       <Route path="/settings" element={withLayout(Settings)} />
-      <Route path="/project/:id" element={<ProjectDetails/>} />
+      <Route path="/project/:id" element={withLayout(ProjectOverview)} />
     </Routes>
   );
 };

@@ -329,7 +329,7 @@
 
 .quick-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(1, 2fr);
   gap: 18px;
 }
 

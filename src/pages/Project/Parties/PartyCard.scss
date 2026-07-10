@@ -1,0 +1,57 @@
+.party-card {
+  background: linear-gradient(135deg, #0e2368 0%, #5d8ff0 55%, #6fb8f8 100%);
+  color: #fff;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+.party-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.party-card__label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 8px;
+}
+
+.party-card h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.party-card__status {
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.party-card__status--active {
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+}
+
+.party-card__status--confirmed {
+  background: rgba(255, 255, 255, 0.22);
+  color: #fff;
+}
+
+.party-card__status--pending {
+  background: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.party-card__body {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.6;
+}
