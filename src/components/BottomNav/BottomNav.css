@@ -1,39 +1,47 @@
-.bottom-nav{
+/* ===========================
+   BOTTOM NAV
+=========================== */
 
-position:fixed;
-
-bottom:0;
-
-left:0;
-
-right:0;
-
-height:65px;
-
-background:white;
-
-display:none;
-
-justify-content:space-around;
-
-align-items:center;
-
-box-shadow:0 -3px 8px rgba(0,0,0,.08);
-
-z-index:999;
-
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 65px;
+  background: white;
+  display: none;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0 -3px 8px rgba(0, 0, 0, 0.08);
+  z-index: 999;
+  padding: 0 8px;
+  /* safe area for notched phones */
+  padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
-.bottom-nav a{
-
-font-size:28px;
-
-color:#510400;
-
+.bottom-nav a {
+  font-size: 28px;
+  color: #510400;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 10px;
+  transition: background 0.15s;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.bottom-nav a.active{
+.bottom-nav a.active {
+  color: #0e2368;
+}
 
-color:black;
+.bottom-nav a:hover {
+  background: #f0f2f8;
+}
 
+/* Show on tablet and below */
+@media (max-width: 992px) {
+  .bottom-nav {
+    display: flex;
+  }
 }

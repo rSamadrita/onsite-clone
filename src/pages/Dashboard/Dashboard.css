@@ -1,569 +1,104 @@
 /* ===========================================================
    DASHBOARD
 =========================================================== */
+
 .dashboard-container {
   padding: 32px;
 }
+
 .dashboard-page {
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 32px;
+  animation: dashboardPage 0.35s ease;
+}
+
+@keyframes dashboardPage {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 /* ===========================================================
-   HERO SECTION
-=========================================================== */
-
-.hero-banner {
-  position: relative;
-  overflow: hidden;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  width: 100%;
-
-  min-height: 240px;
-
-  padding: 45px 55px;
-
-  border-radius: 24px;
-
-  background: linear-gradient(
-    120deg,
-    #faf5f2 0%,
-    #efdcd3 28%,
-    #b87869 70%,
-    #510400 100%
-  );
-
-  box-shadow: 0 15px 40px rgba(81, 4, 0, 0.12);
-
-  isolation: isolate;
-}
-
-/* Decorative circles */
-
-.hero-banner::before {
-  content: "";
-
-  position: absolute;
-
-  width: 360px;
-
-  height: 360px;
-
-  border-radius: 50%;
-
-  right: -120px;
-
-  top: -160px;
-
-  background: rgba(255, 255, 255, 0.08);
-}
-
-.hero-banner::after {
-  content: "";
-
-  position: absolute;
-
-  width: 240px;
-
-  height: 240px;
-
-  border-radius: 50%;
-
-  bottom: -120px;
-
-  left: 48%;
-
-  background: rgba(255, 255, 255, 0.05);
-}
-
-/* Left */
-
-.hero-left {
-  max-width: 620px;
-
-  z-index: 2;
-}
-
-.hero-tag {
-  display: inline-flex;
-
-  align-items: center;
-
-  padding: 8px 18px;
-
-  border-radius: 30px;
-
-  background: rgba(255, 255, 255, 0.9);
-
-  color: #510400;
-
-  font-size: 13px;
-
-  font-weight: 600;
-
-  letter-spacing: 0.4px;
-
-  margin-bottom: 22px;
-}
-
-.hero-left h1 {
-  font-size: 42px;
-
-  line-height: 1.15;
-
-  color: #2b1b18;
-
-  margin-bottom: 18px;
-
-  font-weight: 700;
-}
-
-.hero-left p {
-  font-size: 16px;
-
-  color: #564d4b;
-
-  line-height: 1.8;
-
-  max-width: 520px;
-}
-
-/* Right */
-
-.hero-right {
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  z-index: 2;
-}
-
-.hero-btn {
-  border: none;
-
-  outline: none;
-
-  cursor: pointer;
-
-  display: flex;
-
-  align-items: center;
-
-  gap: 12px;
-
-  padding: 18px 28px;
-
-  border-radius: 14px;
-
-  background: #510400;
-
-  color: white;
-
-  font-size: 15px;
-
-  font-weight: 600;
-
-  transition: 0.25s;
-
-  box-shadow: 0 10px 25px rgba(81, 4, 0, 0.2);
-}
-
-.hero-btn:hover {
-  transform: translateY(-3px);
-
-  background: #6b0804;
-}
-
-.hero-btn svg {
-  font-size: 22px;
-}
-
-/* ===========================================================
-   KPI GRID
-=========================================================== */
-
-.stats-grid {
-  display: grid;
-
-  grid-template-columns: repeat(4, 1fr);
-
-  gap: 24px;
-}
-
-/* ===========================================================
-   KPI CARD
-=========================================================== */
-
-.stats-card {
-  background: white;
-
-  border-radius: 20px;
-
-  border: 1px solid #ececec;
-
-  padding: 24px;
-
-  display: flex;
-
-  align-items: center;
-
-  gap: 18px;
-
-  transition: 0.25s;
-
-  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.05);
-}
-
-.stats-card:hover {
-  transform: translateY(-4px);
-
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
-}
-
-.stats-icon {
-  width: 64px;
-
-  height: 64px;
-
-  border-radius: 18px;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  color: white;
-
-  font-size: 28px;
-
-  flex-shrink: 0;
-}
-
-.stats-card p {
-  font-size: 14px;
-
-  color: #8b8b8b;
-
-  margin-bottom: 6px;
-}
-
-.stats-card h2 {
-  font-size: 30px;
-
-  color: #1d2939;
-
-  font-weight: 700;
-}
-
-/* ===========================================================
-   COMMON SECTION HEADER
+   SECTION HEADING
 =========================================================== */
 
 .section-heading {
   display: flex;
-
   justify-content: space-between;
-
   align-items: center;
-
   margin-bottom: 22px;
 }
 
 .section-heading h2 {
   font-size: 25px;
-
   color: #1d2939;
-
   font-weight: 700;
 }
 
 .section-heading p {
   color: #667085;
-
   margin-top: 4px;
-
   font-size: 14px;
 }
+
 /* ===========================================================
-   DASHBOARD MIDDLE LAYOUT
+   STATS GRID
 =========================================================== */
 
-.dashboard-middle {
+.stats-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 28px;
-  align-items: start;
-}
-
-/* ===========================================================
-   COMMON WHITE PANEL
-=========================================================== */
-
-.quick-actions,
-.activity-panel {
-  background: #ffffff;
-  border: 1px solid #ececec;
-  border-radius: 22px;
-  padding: 28px;
-  box-shadow: 0 6px 22px rgba(15, 23, 42, 0.05);
-  transition: 0.25s ease;
-}
-
-.quick-actions:hover,
-.activity-panel:hover {
-  box-shadow: 0 14px 35px rgba(15, 23, 42, 0.08);
-}
-
-/* ===========================================================
-   QUICK ACTIONS
-=========================================================== */
-
-.quick-grid {
-  display: grid;
-  grid-template-rows: repeat(1, 2fr);
-  gap: 18px;
-}
-
-.quick-card {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-
-  background: #fafafa;
-
-  border: 1px solid #eeeeee;
-
-  border-radius: 18px;
-
-  padding: 18px;
-
-  cursor: pointer;
-
-  transition: 0.25s ease;
-
-  position: relative;
-
-  overflow: hidden;
-}
-
-.quick-card::before {
-  content: "";
-
-  position: absolute;
-
-  left: 0;
-
-  top: 0;
-
-  width: 5px;
-
-  height: 100%;
-
-  background: #510400;
-
-  transform: scaleY(0);
-
-  transition: 0.25s;
-}
-
-.quick-card:hover::before {
-  transform: scaleY(1);
-}
-
-.quick-card:hover {
-  background: white;
-
-  transform: translateY(-4px);
-
-  border-color: #d8d8d8;
-
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.07);
-}
-
-.quick-icon {
-  width: 58px;
-
-  height: 58px;
-
-  border-radius: 16px;
-
-  display: flex;
-
-  justify-content: center;
-
-  align-items: center;
-
-  color: white;
-
-  font-size: 24px;
-
-  flex-shrink: 0;
-}
-
-.quick-content {
-  flex: 1;
-}
-
-.quick-content h3 {
-  color: #1d2939;
-
-  font-size: 17px;
-
-  font-weight: 600;
-
-  margin-bottom: 6px;
-}
-
-.quick-content p {
-  color: #667085;
-
-  font-size: 14px;
-
-  line-height: 1.4;
-}
-
-.quick-arrow {
-  color: #98a2b3;
-
-  font-size: 22px;
-
-  transition: 0.25s;
-}
-
-.quick-card:hover .quick-arrow {
-  color: #510400;
-
-  transform: translateX(6px);
-}
-
-/* ===========================================================
-   ACTIVITY PANEL
-=========================================================== */
-
-.activity-list {
-  display: flex;
-  flex-direction: column;
+  grid-template-columns: repeat(4, 1fr);
   gap: 24px;
 }
 
-.activity-item {
+/* ===========================================================
+   STATS CARD
+=========================================================== */
+
+.stats-card {
+  background: white;
+  border-radius: 20px;
+  border: 1px solid #ececec;
+  padding: 24px;
   display: flex;
-  align-items: flex-start;
-  gap: 16px;
+  align-items: center;
+  gap: 18px;
+  transition: 0.25s;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.05);
 }
 
-.activity-dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  margin-top: 7px;
+.stats-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+}
+
+.stats-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 28px;
   flex-shrink: 0;
 }
 
-.activity-dot.green {
-  background: #12b76a;
-}
-
-.activity-dot.blue {
-  background: #2f80ed;
-}
-
-.activity-dot.orange {
-  background: #f79009;
-}
-
-.activity-item h4 {
-  color: #1d2939;
-  font-size: 15px;
-  font-weight: 600;
+.stats-card p {
+  font-size: 14px;
+  color: #8b8b8b;
   margin-bottom: 6px;
 }
 
-.activity-item p {
-  color: #667085;
-  font-size: 14px;
-  line-height: 1.6;
-}
-
-/* ===========================================================
-   UPCOMING TASKS (Future Widget)
-=========================================================== */
-
-.task-widget {
-  margin-top: 26px;
-
-  padding-top: 24px;
-
-  border-top: 1px solid #eeeeee;
-}
-
-.task-widget h3 {
+.stats-card h2 {
+  font-size: 30px;
   color: #1d2939;
-
-  font-size: 17px;
-
-  margin-bottom: 16px;
-}
-
-.task-item {
-  display: flex;
-
-  justify-content: space-between;
-
-  align-items: center;
-
-  padding: 12px 0;
-
-  border-bottom: 1px dashed #ededed;
-}
-
-.task-item:last-child {
-  border-bottom: none;
-}
-
-.task-name {
-  color: #475467;
-
-  font-size: 14px;
-}
-
-.task-date {
-  color: #98a2b3;
-
-  font-size: 13px;
+  font-weight: 700;
 }
 
 /* ===========================================================
-   SUBTLE ANIMATIONS
-=========================================================== */
-
-.quick-actions,
-.activity-panel {
-  animation: dashboardFade 0.5s ease;
-}
-
-@keyframes dashboardFade {
-  from {
-    opacity: 0;
-    transform: translateY(18px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-/* ===========================================================
-   PROJECT SECTION
+   PROJECTS SECTION
 =========================================================== */
 
 .projects-section {
@@ -592,619 +127,176 @@
 =========================================================== */
 
 .projects-grid {
-  display:grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
   gap: 24px;
 }
 
 /* ===========================================================
-   EMPTY PROJECT STATE
+   EMPTY STATE
 =========================================================== */
 
 .empty-project {
   background: #ffffff;
-
   border: 1px solid #ececec;
-
   border-radius: 24px;
-
   padding: 90px 40px;
-
   display: flex;
-
   flex-direction: column;
-
   align-items: center;
-
   justify-content: center;
-
   text-align: center;
-
   box-shadow: 0 6px 20px rgba(15, 23, 42, 0.05);
 }
 
 .empty-icon {
   width: 90px;
-
   height: 90px;
-
   border-radius: 50%;
-
   background: linear-gradient(135deg, #faf5f2, #efdcd3);
-
   display: flex;
-
   align-items: center;
-
   justify-content: center;
-
   font-size: 40px;
-
   margin-bottom: 26px;
-
   color: #510400;
 }
 
 .empty-project h2 {
   font-size: 30px;
-
   font-weight: 700;
-
   color: #1d2939;
-
   margin-bottom: 14px;
 }
 
 .empty-project p {
   max-width: 500px;
-
   color: #667085;
-
   line-height: 1.8;
-
   margin-bottom: 32px;
-
   font-size: 15px;
 }
 
-/* ===========================================================
-   CREATE PROJECT BUTTON
-=========================================================== */
-
 .create-project-btn {
   border: none;
-
   cursor: pointer;
-
   background: linear-gradient(135deg, #510400, #6f0905);
-
   color: white;
-
   padding: 16px 30px;
-
   border-radius: 14px;
-
   font-size: 15px;
-
   font-weight: 600;
-
   transition: 0.3s;
-
   box-shadow: 0 10px 25px rgba(81, 4, 0, 0.2);
 }
 
 .create-project-btn:hover {
   transform: translateY(-3px);
-
   box-shadow: 0 18px 35px rgba(81, 4, 0, 0.25);
-}
-
-/* ===========================================================
-   COMMON WHITE CARD
-=========================================================== */
-
-.erp-card {
-  background: white;
-
-  border-radius: 22px;
-
-  border: 1px solid #ececec;
-
-  padding: 28px;
-
-  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.05);
 }
 
 /* ===========================================================
    SCROLLBAR
 =========================================================== */
 
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f5f6f8;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #d2d6db;
-
-  border-radius: 30px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #aeb4bc;
-}
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f5f6f8; }
+::-webkit-scrollbar-thumb { background: #d2d6db; border-radius: 30px; }
+::-webkit-scrollbar-thumb:hover { background: #aeb4bc; }
 
 /* ===========================================================
-   PAGE ANIMATION
+   RESPONSIVE — Tablet (≤ 1100px)
 =========================================================== */
 
-.dashboard-page {
-  animation: dashboardPage 0.35s ease;
-}
-
-@keyframes dashboardPage {
-  from {
-    opacity: 0;
-
-    transform: translateY(18px);
-  }
-
-  to {
-    opacity: 1;
-
-    transform: translateY(0);
-  }
-}
-
-/* ===========================================================
-   PROJECT CARD SPACING
-=========================================================== */
-
-.projects-grid .project-card {
-  width: 100%;
-
-  transition: 0.3s;
-}
-
-.projects-grid .project-card:hover {
-  transform: translateY(-4px);
-}
-
-/* ===========================================================
-   DIVIDER
-=========================================================== */
-
-.section-divider {
-  width: 100%;
-
-  height: 1px;
-
-  background: #ececec;
-
-  margin: 10px 0 5px;
-}
-
-/* ===========================================================
-   BADGES
-=========================================================== */
-
-.badge {
-  display: inline-flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  padding: 6px 14px;
-
-  border-radius: 30px;
-
-  font-size: 12px;
-
-  font-weight: 600;
-}
-
-.badge-success {
-  background: #ecfdf3;
-
-  color: #027a48;
-}
-
-.badge-warning {
-  background: #fff7ed;
-
-  color: #c2410c;
-}
-
-.badge-danger {
-  background: #fef3f2;
-
-  color: #b42318;
-}
-
-/* ===========================================================
-   UTILITY CLASSES
-=========================================================== */
-
-.mt-20 {
-  margin-top: 20px;
-}
-
-.mt-30 {
-  margin-top: 30px;
-}
-
-.mb-20 {
-  margin-bottom: 20px;
-}
-
-.text-muted {
-  color: #667085;
-}
-
-.text-right {
-  text-align: right;
-}
-
-.w-100 {
-  width: 100%;
-}
-/* ===========================================================
-   RESPONSIVE - LARGE DESKTOP
-=========================================================== */
-
-@media (max-width: 1600px) {
-  .dashboard-page {
-    gap: 28px;
-  }
-
-  .hero-banner {
-    padding: 38px 42px;
-  }
-}
-
-/* ===========================================================
-   LAPTOP
-=========================================================== */
-
-@media (max-width: 1280px) {
+@media (max-width: 1100px) {
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  .dashboard-middle {
-    grid-template-columns: 1fr;
-  }
-
-  .quick-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .hero-banner {
-    padding: 34px;
-  }
-
-  .hero-left h1 {
-    font-size: 34px;
-  }
-}
-
-/* ===========================================================
-   TABLET
-=========================================================== */
-
-@media (max-width: 992px) {
-  .dashboard-page {
-    gap: 24px;
-  }
-
-  .hero-banner {
-    flex-direction: column;
-
-    align-items: flex-start;
-
-    gap: 32px;
-
-    padding: 32px;
-  }
-
-  .hero-left {
-    max-width: 100%;
-  }
-
-  .hero-left h1 {
-    font-size: 32px;
-  }
-
-  .hero-left p {
-    max-width: 100%;
-  }
-
-  .hero-right {
-    width: 100%;
-  }
-
-  .hero-btn {
-    width: 100%;
-
-    justify-content: center;
-  }
-
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-
     gap: 18px;
   }
 
-  .quick-grid {
-    grid-template-columns: 1fr;
+  .projects-grid {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   }
 }
 
 /* ===========================================================
-   MOBILE
+   RESPONSIVE — Mobile (≤ 768px)
 =========================================================== */
 
 @media (max-width: 768px) {
   .dashboard-container {
-    padding: 0px;
+    padding: 14px;
   }
+
   .dashboard-page {
     gap: 20px;
   }
 
-  .hero-banner {
-    border-radius: 18px;
-
-    padding: 24px;
-
-    min-height: auto;
-  }
-
-  .hero-tag {
-    font-size: 12px;
-
-    padding: 7px 14px;
-  }
-
-  .hero-left h1 {
-    font-size: 28px;
-  }
-
-  .hero-left p {
-    font-size: 14px;
-
-    line-height: 1.7;
-  }
-
-  .hero-btn {
-    padding: 15px;
-
-    border-radius: 12px;
-
-    font-size: 15px;
-  }
-
   .stats-grid {
-    grid-template-columns: 1fr;
-
-    gap: 16px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
   }
 
   .stats-card {
-    padding: 18px;
-  }
-
-  .stats-icon {
-    width: 54px;
-
-    height: 54px;
-
-    border-radius: 14px;
-
-    font-size: 24px;
-  }
-
-  .stats-card h2 {
-    font-size: 24px;
-  }
-
-  .quick-actions,
-  .activity-panel {
-    padding: 20px;
-
-    border-radius: 18px;
-  }
-
-  .section-heading {
-    margin-bottom: 18px;
-  }
-
-  .section-heading h2 {
-    font-size: 22px;
-  }
-
-  .quick-card {
     padding: 16px;
-  }
-
-  .quick-icon {
-    width: 50px;
-
-    height: 50px;
-
-    border-radius: 14px;
-
-    font-size: 22px;
-  }
-
-  .quick-content h3 {
-    font-size: 16px;
-  }
-
-  .quick-content p {
-    font-size: 13px;
-  }
-
-  .projects-section .section-heading {
-    flex-direction: column;
-
-    align-items: flex-start;
-
-    gap: 8px;
-  }
-
-  .projects-section .section-heading h2 {
-    font-size: 24px;
-  }
-
-  .empty-project {
-    padding: 55px 24px;
-  }
-
-  .empty-icon {
-    width: 72px;
-
-    height: 72px;
-
-    font-size: 34px;
-  }
-
-  .empty-project h2 {
-    font-size: 24px;
-  }
-
-  .empty-project p {
-    font-size: 14px;
-  }
-}
-
-/* ===========================================================
-   SMALL MOBILE
-=========================================================== */
-
-@media (max-width: 480px) {
-  .dashboard-container {
-    padding: 0px;
-  }
-  .hero-banner {
-    padding: 20px;
-  }
-
-  .hero-left h1 {
-    font-size: 24px;
-  }
-
-  .hero-left p {
-    font-size: 13px;
-  }
-
-  .hero-btn {
-    font-size: 14px;
-  }
-
-  .stats-card {
-    gap: 14px;
-
-    padding: 16px;
+    gap: 12px;
   }
 
   .stats-icon {
     width: 48px;
-
     height: 48px;
+    font-size: 22px;
+    border-radius: 14px;
+  }
 
+  .stats-card p { font-size: 12px; }
+  .stats-card h2 { font-size: 22px; }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .empty-project {
+    padding: 50px 24px;
+  }
+
+  .empty-project h2 { font-size: 22px; }
+  .empty-project p  { font-size: 14px; }
+
+  .section-heading h2         { font-size: 20px; }
+  .projects-section .section-heading h2 { font-size: 22px; }
+}
+
+/* ===========================================================
+   RESPONSIVE — Small mobile (≤ 480px)
+=========================================================== */
+
+@media (max-width: 480px) {
+  .dashboard-container {
+    padding: 10px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .stats-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 14px;
+    gap: 8px;
+  }
+
+  .stats-icon {
+    width: 42px;
+    height: 42px;
     font-size: 20px;
   }
 
-  .stats-card h2 {
-    font-size: 22px;
-  }
+  .stats-card h2 { font-size: 20px; }
 
-  .quick-card {
-    flex-direction: column;
-
-    align-items: flex-start;
-
-    text-align: left;
-  }
-
-  .quick-arrow {
-    display: none;
-  }
-
-  .activity-item {
-    gap: 12px;
-  }
-}
-
-/* ===========================================================
-   PREMIUM INTERACTIONS
-=========================================================== */
-
-.hero-banner,
-.stats-card,
-.quick-actions,
-.activity-panel,
-.quick-card,
-.project-card {
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
-    border-color 0.25s ease;
-}
-
-.stats-card:hover,
-.quick-actions:hover,
-.activity-panel:hover {
-  border-color: #e4d2cb;
-}
-
-.project-card {
-  animation: fadeUp 0.45s ease both;
-}
-
-.project-card:nth-child(2) {
-  animation-delay: 0.05s;
-}
-
-.project-card:nth-child(3) {
-  animation-delay: 0.1s;
-}
-
-.project-card:nth-child(4) {
-  animation-delay: 0.15s;
-}
-
-.project-card:nth-child(5) {
-  animation-delay: 0.2s;
-}
-
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-
-    transform: translateY(20px);
-  }
-
-  to {
-    opacity: 1;
-
-    transform: translateY(0);
-  }
-}
-
-/* ===========================================================
-   PAGE BACKGROUND
-=========================================================== */
-
-.dashboard-page {
-  background: #f7f8fa;
-
-  border-radius: 20px;
-
-  padding: 5px;
+  .empty-project { padding: 36px 16px; }
+  .empty-icon    { width: 70px; height: 70px; font-size: 32px; }
 }

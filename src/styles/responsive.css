@@ -1,139 +1,105 @@
-/* ========== Large Desktop ========== */
+/* ============================================================
+   GLOBAL RESPONSIVE SYSTEM
+   Breakpoints:
+     xs  < 360px   (tiny phones)
+     sm  360–479px (small phones)
+     md  480–767px (large phones)
+     lg  768–991px (tablet portrait)
+     xl  992–1199px (tablet landscape / small desktop)
+     2xl 1200px+   (desktop)
 
-@media screen and (max-width:1400px){
+   NOTE: component-specific layout (sidebar, header, bottom-nav)
+   is handled in their own CSS files. This file handles:
+   - generic utility classes
+   - grid helpers
+   - page padding
+   - global typography scaling
+============================================================ */
 
-.container{
-    width:95%;
+/* ══════════════════════════════════════════════
+   UTILITY CLASSES
+══════════════════════════════════════════════ */
+.desktop-only { display: block; }
+/* .mobile-only is NOT set here — BottomNav handles its own visibility */
+
+/* ══════════════════════════════════════════════
+   TABLET  (≤ 992px)
+══════════════════════════════════════════════ */
+@media screen and (max-width: 992px) {
+  .desktop-only        { display: none; }
+  .grid-4, .grid-3     { grid-template-columns: repeat(2, 1fr); }
+  .page                { padding: 16px 16px 80px; }
 }
 
+/* ══════════════════════════════════════════════
+   MOBILE  (≤ 768px)
+══════════════════════════════════════════════ */
+@media screen and (max-width: 768px) {
+  .grid-4,
+  .grid-3,
+  .grid-2              { grid-template-columns: 1fr; }
+  .form-row            { flex-direction: column; }
+  .card                { padding: 16px; }
+  .page                { padding: 14px 14px 76px; }
+
+  h1 { font-size: 26px; }
+  h2 { font-size: 20px; }
+  h3 { font-size: 18px; }
 }
 
+/* ══════════════════════════════════════════════
+   SMALL MOBILE  (≤ 480px)
+══════════════════════════════════════════════ */
+@media screen and (max-width: 480px) {
+  .page { padding: 10px 10px 70px; }
 
-/* ========== Laptop ========== */
+  h1 { font-size: 22px; }
+  h2 { font-size: 18px; }
 
-@media screen and (max-width:1200px){
-
-.sidebar{
-    width:220px;
+  /* iOS zoom prevention + WCAG touch targets */
+  input, select, textarea { font-size: 16px !important; }
 }
 
-.main-content{
-    margin-left:220px;
+/* ══════════════════════════════════════════════
+   EXTRA SMALL  (≤ 360px)
+══════════════════════════════════════════════ */
+@media screen and (max-width: 360px) {
+  .page { padding: 8px 8px 68px; }
+  h1    { font-size: 20px; }
+  h2    { font-size: 16px; }
 }
 
+/* ══════════════════════════════════════════════
+   LANDSCAPE PHONE  (height ≤ 500px)
+══════════════════════════════════════════════ */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+  .bottom-nav   { height: 52px; }
+  .page         { padding-bottom: 58px; }
+  .po-topbar    { padding: 8px 14px; }
+  .po-tab       { padding: 9px 13px; }
+
+  /* Sheets stay scrollable in landscape */
+  .qa-sheet,
+  .pt-sheet,
+  .bottom-sheet,
+  .att-sheet,
+  .task-sheet   { max-height: 92dvh; }
 }
 
+/* ══════════════════════════════════════════════
+   PRINT
+══════════════════════════════════════════════ */
+@media print {
+  .sidebar,
+  .header,
+  .bottom-nav,
+  .txn-fab,
+  .mat-fab,
+  .task-add-bar,
+  .po-topbar,
+  .po-tabbar     { display: none !important; }
 
-/* ========== Tablet ========== */
-
-@media screen and (max-width:992px){
-
-.sidebar{
-    position:fixed;
-    left:-260px;
-    top:0;
-    width:250px;
-    height:100vh;
-    z-index:999;
-    transition:.3s;
-}
-
-.sidebar.open{
-    left:0;
-}
-
-.main-content{
-    margin-left:0;
-    width:100%;
-}
-
-.desktop-only{
-    display:none;
-}
-
-.mobile-only{
-    display:flex;
-}
-
-.grid-4{
-    grid-template-columns:repeat(2,1fr);
-}
-
-.grid-3{
-    grid-template-columns:repeat(2,1fr);
-}
-
-}
-
-
-/* ========== Mobile ========== */
-
-@media screen and (max-width:768px){
-
-.header-title{
-    font-size:20px;
-}
-
-.page{
-    padding:16px;
-}
-
-.grid-4,
-.grid-3,
-.grid-2{
-    grid-template-columns:1fr;
-}
-
-.form-row{
-    flex-direction:column;
-}
-
-.card{
-    padding:16px;
-}
-
-.bottom-nav{
-    display:flex;
-}
-
-.sidebar{
-    width:250px;
-}
-
-}
-
-
-/* ========== Small Mobile ========== */
-
-@media screen and (max-width:480px){
-
-.page{
-    padding:12px;
-}
-
-.header{
-    padding:14px;
-}
-
-button{
-    height:45px;
-}
-
-input,
-select{
-    height:45px;
-}
-
-h1{
-    font-size:22px;
-}
-
-}
-
-.desktop-only{
-display:block;
-}
-
-.mobile-only{
-display:none;
+  .main-content  { margin-left: 0 !important; }
+  .page          { padding: 0 !important; }
+  body           { background: #fff; color: #000; }
 }

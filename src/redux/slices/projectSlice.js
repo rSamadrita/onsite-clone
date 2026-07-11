@@ -1,7 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { loadProjects, saveProjects } from "../../utils/storage";
+import { loadProjects } from "../../utils/storage";
 import { v4 as uuid } from "uuid";
 
+// Fallback: if the new unified state isn't in localStorage yet (first run after
+// upgrade), seed from the legacy key so no data is lost.
 const initialState = {
   currentProject: null,
   projects: loadProjects(),
@@ -27,16 +29,12 @@ const projectSlice = createSlice({
       };
 
       state.projects.unshift(project);
-
-      saveProjects(state.projects);
     },
 
     deleteProject(state, action) {
       state.projects = state.projects.filter(
         (project) => project.id !== action.payload
       );
-
-      saveProjects(state.projects);
     },
 
     updateProject(state, action) {
@@ -49,8 +47,6 @@ const projectSlice = createSlice({
           ...state.projects[index],
           ...action.payload,
         };
-
-        saveProjects(state.projects);
       }
     },
 

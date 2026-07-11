@@ -119,3 +119,41 @@ flex-direction:column;
 }
 
 }
+
+/* ============================================================
+   RESPONSIVE — DeleteProjectModal
+============================================================ */
+
+@media (max-width: 480px) {
+  .delete-overlay {
+    padding: 0;
+    align-items: flex-end;
+  }
+
+  .delete-modal {
+    max-width: 100%;
+    border-radius: 24px 24px 0 0;
+    padding: 28px 20px 36px;
+    animation: deleteSlideUp 0.28s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+
+  @keyframes deleteSlideUp {
+    from { transform: translateY(100%); }
+    to   { transform: translateY(0); }
+  }
+
+  .delete-icon { font-size: 42px; }
+
+  .delete-modal h2 { font-size: 20px; }
+  .delete-modal p  { font-size: 14px; }
+
+  .delete-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .delete-buttons button {
+    font-size: 15px;
+    padding: 14px;
+  }
+}

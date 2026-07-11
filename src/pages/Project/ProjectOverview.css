@@ -1,298 +1,211 @@
 /* ===========================
-   PROJECT OVERVIEW
+   PROJECT OVERVIEW — tabbed shell
 =========================== */
 
-.project-overview {
-  padding: 32px;
-  background: #f4f7fc;
-  min-height: 100vh;
+.po-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  background: #f0f2f8;
 }
 
-/* ===========================
-   HEADER
-=========================== */
-
-.overview-header {
-  background: linear-gradient(135deg, #0e2368 0%, #5d8ff0 55%, #6fb8f8 100%);
-  border-radius: 20px;
-  padding: 32px 34px;
-  color: #fff;
-  margin-bottom: 24px;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
-  position: relative;
-  overflow: hidden;
-}
-
-.overview-header::after {
-  content: "";
-  position: absolute;
-  right: -70px;
-  top: -70px;
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.08);
-}
-
-.overview-header h1 {
-  font-size: 34px;
-  font-weight: 700;
-  margin: 14px 0;
-}
-
-.overview-header p {
+/* ── Top header bar ── */
+.po-topbar {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 16px;
-  opacity: 0.95;
+  padding: 16px 18px;
+  background: linear-gradient(135deg, #0e1e6e 0%, #2541b2 60%, #3a6fd8 100%);
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 4px 16px rgba(14,30,110,0.35);
 }
 
-.status-pill {
-  display: inline-flex;
-  align-items: center;
-  padding: 8px 18px;
-  border-radius: 30px;
-  background: rgba(255, 255, 255, 0.18);
-  backdrop-filter: blur(10px);
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.4px;
-}
-
-/* ===========================
-   INFO GRID
-=========================== */
-
-.overview-info-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 22px;
-  margin-bottom: 30px;
-}
-
-.info-card {
-  background: #fff;
-  border-radius: 18px;
-  padding: 22px;
+.po-back-btn {
   display: flex;
   align-items: center;
-  gap: 16px;
-  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
-  transition: 0.25s ease;
-  border: 1px solid #ececec;
-}
-
-.info-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.09);
-}
-
-.info-card svg {
-  font-size: 30px;
-  color: #510400;
-  min-width: 30px;
-}
-
-.info-card span {
-  display: block;
-  color: #98a2b3;
-  font-size: 12px;
-  margin-bottom: 6px;
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-}
-
-.info-card h3 {
-  font-size: 16px;
-  color: #101828;
-  font-weight: 700;
-  line-height: 1.4;
-}
-
-.overview-two-column {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 24px;
-  margin-bottom: 28px;
-}
-
-/* ===========================
-   QUICK ACTIONS
-=========================== */
-
-.quick-actions {
-  background: #fff;
-  border-radius: 20px;
-  padding: 24px 26px;
-  margin-bottom: 24px;
-  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
-  border: 1px solid #ececec;
-}
-
-.quick-actions h2 {
-  color: #101828;
-  font-size: 20px;
-  margin-bottom: 16px;
-}
-
-.quick-grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 18px;
-}
-
-.quick-grid button {
-  border: 1px solid #ececec;
-  background: #f7f8fb;
-  color: #510400;
-  font-weight: 600;
-  font-size: 14px;
-  border-radius: 14px;
-  padding: 16px 14px;
-  cursor: pointer;
-  transition: 0.25s ease;
-}
-
-.quick-grid button:hover {
-  background: #f1e7e2;
-  transform: translateY(-3px);
-}
-
-/* ===========================
-   KPI CARDS
-=========================== */
-
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-bottom: 30px;
-}
-
-.stat-card {
-  background: #fff;
-  border-radius: 18px;
-  padding: 24px;
-  text-align: center;
-  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
-  border: 1px solid #ececec;
-  transition: 0.25s ease;
-  color: #101828;
-}
-
-.stat-card:hover {
-  transform: translateY(-5px);
-}
-
-.stat-card svg {
-  font-size: 38px;
-  color: #510400;
-  margin-bottom: 14px;
-}
-
-.stat-card h2 {
-  font-size: 14px;
-  color: #667085;
-  margin-bottom: 10px;
-}
-
-.stat-card h1 {
-  font-size: 36px;
-  color: #101828;
-}
-
-/* ===========================
-   RECENT ACTIVITY
-=========================== */
-
-.recent-card {
-  background: #fff;
-  border-radius: 20px;
-  padding: 24px 26px;
-  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
-  border: 1px solid #ececec;
-}
-
-.recent-card h2 {
-  font-size: 20px;
-  color: #101828;
-  margin-bottom: 16px;
-}
-
-.recent-card p {
-  color: #667085;
-  font-size: 14px;
-}
-
-/* ===========================
-   NOT FOUND
-=========================== */
-
-.project-not-found {
-  display: flex;
   justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: none;
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  border-radius: 10px;
+  flex-shrink: 0;
+  transition: background 0.15s;
+}
+
+.po-back-btn:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+.po-project-name {
+  flex: 1;
+  font-size: 20px;
+  font-weight: 800;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: 0.2px;
+}
+
+.po-topbar-actions {
+  display: flex;
+  gap: 4px;
+}
+
+.po-icon-btn {
+  width: 38px;
+  height: 38px;
+  border: none;
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 10px;
+  display: flex;
   align-items: center;
-  height: 80vh;
-  font-size: 28px;
+  justify-content: center;
+  transition: background 0.15s;
+}
+
+.po-icon-btn:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+/* ── Tab bar ── */
+.po-tabbar {
+  display: flex;
+  overflow-x: auto;
+  background: linear-gradient(135deg, #0e1e6e 0%, #2541b2 100%);
+  padding: 0 10px;
+  gap: 0;
+  scrollbar-width: none;
+  border-bottom: 2px solid rgba(255,255,255,0.1);
+}
+
+.po-tabbar::-webkit-scrollbar {
+  display: none;
+}
+
+.po-tab {
+  flex-shrink: 0;
+  padding: 13px 18px;
+  border: none;
+  background: transparent;
+  color: rgba(255,255,255,0.6);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+  white-space: nowrap;
+  letter-spacing: 0.2px;
+}
+
+.po-tab:hover {
+  color: rgba(255,255,255,0.9);
+}
+
+.po-tab--active {
+  color: #fff;
+  border-bottom-color: #f5c518;   /* golden underline stands out on navy */
+}
+
+/* ── Tab content area ── */
+.po-tab-content {
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* ── Placeholder ── */
+.po-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 20px;
+  color: #94a3b8;
+  font-size: 18px;
   font-weight: 600;
+}
+
+/* ── Not found ── */
+.po-not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  min-height: 60vh;
   color: #64748b;
+  font-size: 20px;
 }
 
-/* ===========================
-   RESPONSIVE
-=========================== */
-
-@media (max-width: 1200px) {
-  .overview-info-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .quick-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
+.po-not-found button {
+  border: none;
+  background: #2541b2;
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 14px;
+  font-size: 16px;
+  cursor: pointer;
 }
 
-@media (max-width: 768px) {
-  .project-overview {
-    padding: 20px;
+/* ── Responsive ── */
+@media (min-width: 768px) {
+  .po-topbar    { padding: 18px 28px; }
+  .po-tabbar    { padding: 0 20px; }
+  .po-tab       { padding: 14px 24px; font-size: 16px; }
+  .po-project-name { font-size: 22px; }
+}
+
+/* ── Desktop: constrain tab content width ── */
+@media (min-width: 1200px) {
+  .po-topbar,
+  .po-tabbar {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
   }
 
-  .overview-header {
-    padding: 28px;
-  }
-
-  .overview-two-column {
-    grid-template-columns: 1fr;
-  }
-
-  .overview-header h1 {
-    font-size: 28px;
-  }
-
-  .overview-info-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .stats-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .quick-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .po-tab-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
   }
 }
 
-@media (max-width: 520px) {
-  .quick-grid {
-    grid-template-columns: 1fr;
+/* ── Mobile: tighten up topbar ── */
+@media (max-width: 480px) {
+  .po-topbar {
+    padding: 12px 12px;
+    gap: 8px;
   }
 
-  .info-card {
-    padding: 20px;
+  .po-project-name {
+    font-size: 16px;
   }
 
-  .stat-card {
-    padding: 22px;
+  .po-icon-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+  }
+
+  .po-back-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+  }
+
+  .po-tab {
+    padding: 11px 13px;
+    font-size: 13px;
   }
 }

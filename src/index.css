@@ -11,3 +11,43 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* ── Viewport meta override for all browsers ── */
+html {
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%; /* prevent iOS font scaling on orientation change */
+  scroll-behavior: smooth;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* Prevent horizontal overflow on any screen */
+body {
+  overflow-x: hidden;
+  min-width: 320px; /* smallest supported width */
+}
+
+/* Touch-friendly tap targets */
+button, a, [role="button"] {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* Responsive images */
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Remove default button height override from responsive.css on mobile */
+@media (max-width: 480px) {
+  button {
+    min-height: 44px; /* WCAG touch target minimum */
+  }
+  input, select, textarea {
+    font-size: 16px; /* prevent iOS zoom on focus */
+    min-height: 44px;
+  }
+}
