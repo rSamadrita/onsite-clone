@@ -215,15 +215,14 @@ textarea {
   .modal-overlay {
     padding: 0;
     align-items: flex-end;
+    overflow-y: auto;
   }
 
   .project-modal {
     border-radius: 24px 24px 0 0;
-    max-height: 90vh;
-    overflow-y: auto;
+    max-height: none;
+    min-height: 50vh;
     animation: slideUpModal 0.28s cubic-bezier(0.32, 0.72, 0, 1);
-    display: flex;
-    flex-direction: column;
   }
 
   @keyframes slideUpModal {
@@ -233,9 +232,6 @@ textarea {
 
   .modal-header {
     padding: 16px 18px;
-    position: sticky;
-    top: 0;
-    z-index: 1;
   }
 
   .modal-header h2 {
@@ -243,9 +239,8 @@ textarea {
   }
 
   form {
-    padding: 16px 18px 24px;
-    flex: 1;
-    overflow-y: auto;
+    padding: 16px 18px;
+    padding-bottom: 40px;
   }
 
   .form-group input,
@@ -268,7 +263,7 @@ textarea {
     flex-direction: column;
     gap: 10px;
     margin-top: 20px;
-    padding-bottom: 8px;
+    margin-bottom: 20px;
   }
 
   .button-group button {
