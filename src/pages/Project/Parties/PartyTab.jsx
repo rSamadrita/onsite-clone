@@ -1,4 +1,4 @@
-import "./PartyTab.scss";
+import "./PartyTab.css";
 
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";

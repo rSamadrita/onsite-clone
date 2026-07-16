@@ -15,12 +15,31 @@
 }
 
 @keyframes dashboardPage {
-  from { opacity: 0; transform: translateY(14px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ===========================================================
-   SECTION HEADING
+   PAGE TITLE
+=========================================================== */
+
+.dashboard-page > h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #03163f;
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* ===========================================================
+   SECTION HEADINGS
 =========================================================== */
 
 .section-heading {
@@ -31,40 +50,44 @@
 }
 
 .section-heading h2 {
+  margin: 0;
   font-size: 25px;
   color: #1d2939;
   font-weight: 700;
 }
 
 .section-heading p {
+  margin: 4px 0 0;
   color: #667085;
-  margin-top: 4px;
   font-size: 14px;
 }
 
 /* ===========================================================
-   STATS GRID
+   KPI GRID
 =========================================================== */
 
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 24px;
 }
 
 /* ===========================================================
-   STATS CARD
+   KPI CARD
 =========================================================== */
 
 .stats-card {
-  background: white;
-  border-radius: 20px;
+  background: #ffffff;
   border: 1px solid #ececec;
+  border-radius: 20px;
+
   padding: 24px;
+
   display: flex;
   align-items: center;
   gap: 18px;
-  transition: 0.25s;
+
+  transition: all 0.25s ease;
   box-shadow: 0 5px 18px rgba(0, 0, 0, 0.05);
 }
 
@@ -76,29 +99,35 @@
 .stats-icon {
   width: 64px;
   height: 64px;
+
   border-radius: 18px;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
-  font-size: 28px;
+
   flex-shrink: 0;
+
+  color: #fff;
+  font-size: 28px;
 }
 
 .stats-card p {
-  font-size: 14px;
+  margin: 0 0 6px;
   color: #8b8b8b;
-  margin-bottom: 6px;
+  font-size: 14px;
 }
 
 .stats-card h2 {
-  font-size: 30px;
+  margin: 0;
   color: #1d2939;
+  font-size: 30px;
   font-weight: 700;
+  line-height: 1.2;
 }
 
 /* ===========================================================
-   PROJECTS SECTION
+   PROJECT SECTION
 =========================================================== */
 
 .projects-section {
@@ -130,6 +159,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
   gap: 24px;
+  width: 100%;
 }
 
 /* ===========================================================
@@ -137,166 +167,493 @@
 =========================================================== */
 
 .empty-project {
+  width: 100%;
+
   background: #ffffff;
   border: 1px solid #ececec;
   border-radius: 24px;
+
   padding: 90px 40px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
   text-align: center;
+
   box-shadow: 0 6px 20px rgba(15, 23, 42, 0.05);
 }
 
 .empty-icon {
   width: 90px;
   height: 90px;
+
   border-radius: 50%;
-  background: linear-gradient(135deg, #faf5f2, #efdcd3);
+
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 40px;
+
   margin-bottom: 26px;
+
+  font-size: 40px;
+
+  background: linear-gradient(
+    135deg,
+    #faf5f2 0%,
+    #efdcd3 100%
+  );
+
   color: #510400;
 }
 
 .empty-project h2 {
+  margin: 0 0 14px;
+
   font-size: 30px;
   font-weight: 700;
   color: #1d2939;
-  margin-bottom: 14px;
 }
 
 .empty-project p {
-  max-width: 500px;
+  max-width: 520px;
+
+  margin: 0 0 32px;
+
   color: #667085;
-  line-height: 1.8;
-  margin-bottom: 32px;
   font-size: 15px;
+  line-height: 1.8;
 }
+
+/* ===========================================================
+   CREATE PROJECT BUTTON
+=========================================================== */
 
 .create-project-btn {
   border: none;
+  outline: none;
   cursor: pointer;
-  background: linear-gradient(135deg, #510400, #6f0905);
-  color: white;
+
   padding: 16px 30px;
+
   border-radius: 14px;
+
+  background: linear-gradient(
+    135deg,
+    #510400,
+    #6f0905
+  );
+
+  color: #ffffff;
+
   font-size: 15px;
   font-weight: 600;
-  transition: 0.3s;
+
+  transition: all 0.3s ease;
+
   box-shadow: 0 10px 25px rgba(81, 4, 0, 0.2);
 }
 
 .create-project-btn:hover {
   transform: translateY(-3px);
+
   box-shadow: 0 18px 35px rgba(81, 4, 0, 0.25);
+}
+
+.create-project-btn:active {
+  transform: translateY(0);
+}
+
+.create-project-btn:focus-visible {
+  outline: 3px solid rgba(81, 4, 0, 0.25);
+  outline-offset: 3px;
+}
+
+/* ===========================================================
+   GENERIC BUTTON RESET (OPTIONAL)
+=========================================================== */
+
+button {
+  font-family: inherit;
+}
+
+/* ===========================================================
+   LINKS
+=========================================================== */
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ===========================================================
+   IMAGES
+=========================================================== */
+
+img {
+  display: block;
+  max-width: 100%;
 }
 
 /* ===========================================================
    SCROLLBAR
 =========================================================== */
 
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #f5f6f8; }
-::-webkit-scrollbar-thumb { background: #d2d6db; border-radius: 30px; }
-::-webkit-scrollbar-thumb:hover { background: #aeb4bc; }
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
 
-/* ===========================================================
-   RESPONSIVE — Tablet (≤ 1100px)
-=========================================================== */
+::-webkit-scrollbar-track {
+  background: #f5f6f8;
+}
 
-@media (max-width: 1100px) {
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 18px;
-  }
+::-webkit-scrollbar-thumb {
+  background: #d2d6db;
+  border-radius: 30px;
+}
 
-  .projects-grid {
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  }
+::-webkit-scrollbar-thumb:hover {
+  background: #aeb4bc;
 }
 
 /* ===========================================================
-   RESPONSIVE — Mobile (≤ 768px)
+   SELECTION
 =========================================================== */
 
-@media (max-width: 768px) {
+::selection {
+  background: rgba(81, 4, 0, 0.15);
+  color: #1d2939;
+}
+
+/* ===========================================================
+   SMOOTH ANIMATIONS
+=========================================================== */
+
+.stats-card,
+.create-project-btn,
+.empty-project,
+.projects-grid > * {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease,
+    background-color 0.25s ease;
+}
+
+/* ===========================================================
+   RESPONSIVE - TABLET LARGE (1024px)
+=========================================================== */
+
+@media screen and (max-width: 1024px) {
+
   .dashboard-container {
-    padding: 14px;
+    padding: 24px;
+  }
+
+  .dashboard-page {
+    gap: 28px;
+  }
+
+  .dashboard-page > h2 {
+    font-size: 30px;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .stats-card {
+    padding: 20px;
+  }
+
+  .stats-card h2 {
+    font-size: 26px;
+  }
+
+  .stats-icon {
+    width: 58px;
+    height: 58px;
+    font-size: 24px;
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+  }
+
+  .section-heading {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+}
+
+
+/* ===========================================================
+   RESPONSIVE - TABLET (768px)
+=========================================================== */
+
+@media screen and (max-width: 768px) {
+
+  .dashboard-container {
+    padding: 18px;
+  }
+
+  .dashboard-page {
+    gap: 24px;
+  }
+
+  .dashboard-page > h2 {
+    font-size: 28px;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .stats-card {
+    padding: 18px;
+    gap: 14px;
+  }
+
+  .stats-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    font-size: 22px;
+  }
+
+  .stats-card h2 {
+    font-size: 22px;
+  }
+
+  .stats-card p {
+    font-size: 13px;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .section-heading {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .section-heading h2 {
+    font-size: 22px;
+  }
+
+  .projects-section .section-heading h2 {
+    font-size: 24px;
+  }
+
+  .empty-project {
+    padding: 60px 24px;
+  }
+
+  .empty-project h2 {
+    font-size: 24px;
+  }
+
+  .empty-project p {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .create-project-btn {
+    width: 100%;
+    max-width: 320px;
+  }
+
+}
+
+
+/* ===========================================================
+   RESPONSIVE - LARGE MOBILE (600px)
+=========================================================== */
+
+@media screen and (max-width: 600px) {
+
+  .dashboard-container {
+    padding: 16px;
   }
 
   .dashboard-page {
     gap: 20px;
   }
 
+  .dashboard-page > h2 {
+    font-size: 26px;
+  }
+
   .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
+    grid-template-columns: 1fr;
+    gap: 14px;
   }
 
   .stats-card {
     padding: 16px;
-    gap: 12px;
+    gap: 14px;
+    flex-direction: row;
+    align-items: center;
   }
 
   .stats-icon {
     width: 48px;
     height: 48px;
-    font-size: 22px;
-    border-radius: 14px;
+    font-size: 20px;
   }
 
-  .stats-card p { font-size: 12px; }
-  .stats-card h2 { font-size: 22px; }
+  .stats-card h2 {
+    font-size: 20px;
+  }
+
+  .stats-card p {
+    font-size: 13px;
+  }
 
   .projects-grid {
-    grid-template-columns: 1fr;
     gap: 16px;
   }
 
   .empty-project {
-    padding: 50px 24px;
+    padding: 48px 20px;
   }
 
-  .empty-project h2 { font-size: 22px; }
-  .empty-project p  { font-size: 14px; }
+  .empty-icon {
+    width: 74px;
+    height: 74px;
+    font-size: 34px;
+  }
 
-  .section-heading h2         { font-size: 20px; }
-  .projects-section .section-heading h2 { font-size: 22px; }
 }
 
+
 /* ===========================================================
-   RESPONSIVE — Small mobile (≤ 480px)
+   RESPONSIVE - MOBILE (430px)
 =========================================================== */
 
-@media (max-width: 480px) {
+@media screen and (max-width: 430px) {
+
+  .dashboard-container {
+    padding: 14px;
+  }
+
+  .dashboard-page {
+    gap: 18px;
+  }
+
+  .dashboard-page > h2 {
+    font-size: 24px;
+  }
+
+  .stats-card {
+    padding: 14px;
+    gap: 12px;
+  }
+
+  .stats-icon {
+    width: 44px;
+    height: 44px;
+    font-size: 18px;
+    border-radius: 12px;
+  }
+
+  .stats-card h2 {
+    font-size: 18px;
+  }
+
+  .stats-card p {
+    font-size: 12px;
+  }
+
+  .section-heading h2,
+  .projects-section .section-heading h2 {
+    font-size: 20px;
+  }
+
+  .section-heading p {
+    font-size: 13px;
+  }
+
+  .empty-project {
+    padding: 40px 16px;
+    border-radius: 18px;
+  }
+
+  .empty-project h2 {
+    font-size: 20px;
+  }
+
+  .empty-project p {
+    font-size: 13px;
+  }
+
+  .create-project-btn {
+    width: 100%;
+    padding: 14px 18px;
+    font-size: 14px;
+  }
+
+}
+
+
+/* ===========================================================
+   RESPONSIVE - SMALL DEVICES (360px)
+=========================================================== */
+
+@media screen and (max-width: 360px) {
+
   .dashboard-container {
     padding: 10px;
   }
 
-  .stats-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
+  .dashboard-page > h2 {
+    font-size: 22px;
   }
 
   .stats-card {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 14px;
-    gap: 8px;
+    padding: 12px;
+    gap: 10px;
   }
 
   .stats-icon {
-    width: 42px;
-    height: 42px;
-    font-size: 20px;
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
   }
 
-  .stats-card h2 { font-size: 20px; }
+  .stats-card h2 {
+    font-size: 17px;
+  }
 
-  .empty-project { padding: 36px 16px; }
-  .empty-icon    { width: 70px; height: 70px; font-size: 32px; }
+  .stats-card p {
+    font-size: 11px;
+  }
+
+  .empty-project {
+    padding: 34px 14px;
+  }
+
+  .empty-icon {
+    width: 64px;
+    height: 64px;
+    font-size: 28px;
+  }
+
+  .empty-project h2 {
+    font-size: 18px;
+  }
+
+  .empty-project p {
+    font-size: 12px;
+  }
+
 }

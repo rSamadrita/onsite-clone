@@ -51,8 +51,8 @@ const ProjectCard = ({ project, onDelete }) => {
           <h2>{project.name}</h2>
 
           <div className="address">
-            <MdLocationOn />
-            <p style={{ textOverflow: "ellipsis", overflow: "hidden", whiteSpace: "nowrap" }}>
+            <MdLocationOn color="white"/>
+            <p className="project-address">
               {project.address}
             </p>
           </div>
@@ -97,11 +97,11 @@ const ProjectCard = ({ project, onDelete }) => {
 
           <MdCalendarToday />
 
-          <div>
+          <div style={{color: "white"}}>
 
             <small>Timeline</small>
 
-            <strong>
+            <strong className="timeline-text">
               {new Date(project.startDate).toLocaleDateString()} -{" "}
               {new Date(project.endDate).toLocaleDateString()}
             </strong>
@@ -110,13 +110,12 @@ const ProjectCard = ({ project, onDelete }) => {
 
         </div>
 
-        <div className="info-item">
 
-          <div>
+          <div style={{color: "white"}}>
 
             <small>Project Value</small>
 
-            <strong style={{ justifyContent: "flex-end" , display: "flex"}}>
+            <strong className="project-value">
               {project.value
                 ? `₹ ${Number(project.value).toLocaleString("en-IN")}`
                 : "Not Added"}
@@ -124,8 +123,11 @@ const ProjectCard = ({ project, onDelete }) => {
 
           </div>
 
-        </div> 
-        <HiArrowRight onClick={handleNavigate} color="white" size={24}/>
+<HiArrowRight
+            className="arrow-icon"
+            onClick={handleNavigate}
+          />
+
 
       </div>
 

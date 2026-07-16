@@ -122,82 +122,84 @@ const AttendanceTab = ({ projectId }) => {
       </div>
 
       {/* Date navigation + summary */}
-      <div className="att-date-row">
-        <div className="att-date-nav">
-          <button className="att-nav-arrow" onClick={prevDay}>‹</button>
-          <div className="att-date-box">
-            <span className="att-date-day">{day}</span>
-            <span className="att-date-mon">{mon}</span>
+      <div className="att-content">
+        <div className="att-date-row">
+          <div className="att-date-nav">
+            <button className="att-nav-arrow" onClick={prevDay}>‹</button>
+            <div className="att-date-box">
+              <span className="att-date-day">{day}</span>
+              <span className="att-date-mon">{mon}</span>
+            </div>
+            <button className="att-nav-arrow" onClick={nextDay}>›</button>
           </div>
-          <button className="att-nav-arrow" onClick={nextDay}>›</button>
-        </div>
 
-        <div className="att-summary">
-          <span className="att-present-count">{presentCount} Present</span>
-          <div className="att-legend">
-            <span className="att-legend-dot grey" />
-            <span>{absentCount} Absent</span>
-            <span className="att-legend-dot purple" />
-            <span>0/0 PL/WO</span>
+          <div className="att-summary">
+            <span className="att-present-count">{presentCount} Present</span>
+            <div className="att-legend">
+              <span className="att-legend-dot grey" />
+              <span>{absentCount} Absent</span>
+              <span className="att-legend-dot purple" />
+              <span>0/0 PL/WO</span>
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Staff list header */}
-      <div className="att-section-header">
-        <span>
-          Active ({filteredStaff.length}){" "}
-          <span className="att-chevron">⌄</span>
-        </span>
-        <button
-          className="att-add-staff-btn"
-          onClick={() => setAddStaffOpen(true)}
-        >
-          + Add Site Staff
-        </button>
-      </div>
+        {/* Staff list header */}
+        <div className="att-section-header">
+          <span>
+            Active ({filteredStaff.length}){" "}
+            <span className="att-chevron">⌄</span>
+          </span>
+          <button
+            className="att-add-staff-btn"
+            onClick={() => setAddStaffOpen(true)}
+          >
+            + Add Site Staff
+          </button>
+        </div>
 
-      {/* Staff rows */}
-      {filteredStaff.length === 0 ? (
-        <div className="att-empty">
-          <p>No payroll added</p>
-        </div>
-      ) : (
-        <div className="att-staff-list">
-          {filteredStaff.map((s) => {
-            const status = dayRecords[s.id] || null;
-            return (
-              <div className="att-staff-card" key={s.id}>
-                <div className="att-staff-top">
-                  <div className="att-avatar">
-                    {s.name.slice(0, 2).toUpperCase()}
+        {/* Staff rows */}
+        {filteredStaff.length === 0 ? (
+          <div className="att-empty">
+            <p>No payroll added</p>
+          </div>
+        ) : (
+          <div className="att-staff-list">
+            {filteredStaff.map((s) => {
+              const status = dayRecords[s.id] || null;
+              return (
+                <div className="att-staff-card" key={s.id}>
+                  <div className="att-staff-top">
+                    <div className="att-avatar">
+                      {s.name.slice(0, 2).toUpperCase()}
+                    </div>
+                    <span className="att-staff-name">{s.name}</span>
+                    <span className="att-arrow">›</span>
                   </div>
-                  <span className="att-staff-name">{s.name}</span>
-                  <span className="att-arrow">›</span>
-                </div>
-                <div className="att-staff-row">
-                  <span className="att-role-label">{s.role}</span>
-                  <div className="att-btn-group">
-                    <button
-                      className={`att-mark-btn present ${status === "present" ? "active-present" : ""}`}
-                      onClick={() => mark(s.id, "present")}
-                    >
-                      Present
-                    </button>
-                    <button
-                      className={`att-mark-btn absent ${status === "absent" ? "active-absent" : ""}`}
-                      onClick={() => mark(s.id, "absent")}
-                    >
-                      Absent
-                    </button>
-                    <button className="att-more-btn">⌄</button>
+                  <div className="att-staff-row">
+                    <span className="att-role-label">{s.role}</span>
+                    <div className="att-btn-group">
+                      <button
+                        className={`att-mark-btn present ${status === "present" ? "active-present" : ""}`}
+                        onClick={() => mark(s.id, "present")}
+                      >
+                        Present
+                      </button>
+                      <button
+                        className={`att-mark-btn absent ${status === "absent" ? "active-absent" : ""}`}
+                        onClick={() => mark(s.id, "absent")}
+                      >
+                        Absent
+                      </button>
+                      <button className="att-more-btn">⌄</button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
-        </div>
-      )}
+              );
+            })}
+          </div>
+        )}
+      </div>
 
       {addStaffOpen && (
         <AddStaffSheet

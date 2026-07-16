@@ -51,7 +51,7 @@ const ProjectOverview = () => {
     switch (activeTab) {
       case "Party":        return <PartyTab       projectId={id} />;
       case "Transaction":  return <TransactionTab projectId={id} />;
-      case "Material":     return <MaterialTab    projectId={id} />;
+      case "Inventory":     return <MaterialTab    projectId={id} />;
       case "Attendance":   return <AttendanceTab  projectId={id} />;
       case "Task":         return <TaskTab        projectId={id} />;
       default:             return <PlaceholderTab name={activeTab} />;

@@ -84,7 +84,7 @@ const MaterialTab = ({ projectId }) => {
       </div>
 
       {activeTab === "Inventory" && (
-        <>
+        <div className="mat-content">
           {/* Search + Add */}
           <div className="mat-toolbar">
             <div className="mat-search">
@@ -143,12 +143,14 @@ const MaterialTab = ({ projectId }) => {
               ))}
             </div>
           )}
-        </>
+        </div>
       )}
 
       {activeTab !== "Inventory" && (
-        <div className="mat-empty">
-          <p>No {activeTab.toLowerCase()} records yet.</p>
+        <div className="mat-content">
+          <div className="mat-empty">
+            <p>No {activeTab.toLowerCase()} records yet.</p>
+          </div>
         </div>
       )}
 

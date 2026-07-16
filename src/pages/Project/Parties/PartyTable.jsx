@@ -1,4 +1,4 @@
-import "./PartyTable.scss";
+import "./PartyTable.css";
 
 import { useMemo, useState } from "react";
 import { useDispatch } from "react-redux";
@@ -281,16 +281,16 @@ const PartyTable = ({ parties = [] }) => {
                 <span className="party-avatar-sm">
                   {party.name.slice(0, 2).toUpperCase()}
                 </span>
-                {party.name}
+                <span className="party-name-text">{party.name}</span>
               </span>
 
-              <span>
+              <span data-label="Type">
                 <div className="party-chip">{party.type}</div>
               </span>
 
-              <span>{party.phone}</span>
+              <span data-label="Phone">{party.phone}</span>
 
-              <span>
+              <span data-label="Balance">
                 ₹ {Number(party.balance || 0).toLocaleString("en-IN")}
               </span>
 

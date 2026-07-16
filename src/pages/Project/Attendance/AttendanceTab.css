@@ -17,6 +17,9 @@
   border-bottom: 2px solid #f0f0f0;
   overflow-x: auto;
   scrollbar-width: none;
+  margin-top: 24px;
+  /* border: 1px solid gray; */
+  border-radius: 12px;
 }
 
 .att-subtabs::-webkit-scrollbar { display: none; }
@@ -39,6 +42,14 @@
   border-color: #2541b2;
   color: #fff;
   box-shadow: 0 4px 14px rgba(37,65,178,0.35);
+}
+
+/* ── Content wrapper with border ── */
+.att-content {
+  /* border: 1px solid gray; */
+  border-radius: 12px;
+  overflow: hidden;
+  margin-top: 24px;
 }
 
 /* ── Date navigation row ── */
