@@ -18,7 +18,7 @@ const Header = () => {
         />
 
         <h2 className="header-title">
-          OnSite Clone
+          OnSite
         </h2>
 
       </div>
