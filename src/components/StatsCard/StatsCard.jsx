@@ -1,10 +1,13 @@
 import "./StatsCard.css";
+import { MdTrendingUp, MdTrendingDown } from "react-icons/md";
 
 const StatsCard = ({
   title,
   value,
   icon,
   color,
+  change,
+  trending,
 }) => {
   return (
     <div className="stats-card">
@@ -16,11 +19,18 @@ const StatsCard = ({
         {icon}
       </div>
 
-      <div>
+      <div className="stats-content">
 
-        <p>{title}</p>
+        <p className="stats-title">{title}</p>
 
-        <h2>{value}</h2>
+        <h2 className="stats-value">{value}</h2>
+
+        {change && (
+          <div className={`stats-change ${trending === 'up' ? 'trending-up' : 'trending-down'}`}>
+            {trending === 'up' ? <MdTrendingUp /> : <MdTrendingDown />}
+            <span>{change}</span>
+          </div>
+        )}
 
       </div>
 

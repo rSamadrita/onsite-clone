@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { loadState, saveState } from "../utils/storage";
 
+import authReducer        from "./slices/authSlice";
 import dashboardReducer   from "./slices/dashboardSlice";
 import partyReducer       from "./slices/partySlice";
 import transactionReducer from "./slices/transactionSlice";
@@ -15,6 +16,7 @@ const preloadedState = loadState();
 
 export const store = configureStore({
   reducer: {
+    auth:         authReducer,
     ui:           uiReducer,
     dashboard:    dashboardReducer,
     parties:      partyReducer,

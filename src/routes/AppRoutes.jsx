@@ -1,32 +1,55 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import Layout from "../components/Layout/Layout";
+import Login from "../pages/Login/Login";
+import SignUp from "../pages/SignUp/SignUp";
 import Dashboard from "../pages/Dashboard/Dashboard";
-import Party from "../pages/Party/Party";
-import Transactions from "../pages/Transactions/Transactions";
-import Attendance from "../pages/Attendance/Attendance";
-import Tasks from "../pages/Tasks/Tasks";
-import Materials from "../pages/Materials/Materials";
-import Settings from "../pages/Settings/Settings";
+import BusinessCard from "../pages/BusinessCard/BusinessCard";
 import ProjectOverview from "../pages/Project/ProjectOverview";
+import RoleAccess from "../pages/RoleAccess/RoleAccess";
+import ProtectedRoute from "../components/ProtectedRoute/ProtectedRoute";
+import InviteFriends from "../pages/InviteFriends/InviteFriends";
+import GiveFeedback from "../pages/GiveFeedback/GiveFeedback";
+import Reports from "../pages/Reports/Reports";
 
 const withLayout = (PageComponent) => (
-  <Layout>
-    <PageComponent />
-  </Layout>
+  <ProtectedRoute>
+    <Layout>
+      <PageComponent />
+    </Layout>
+  </ProtectedRoute>
 );
 
 const AppRoutes = () => {
+  const { isAuthenticated } = useSelector((state) => state.auth);
+
   return (
     <Routes>
+      {/* Public Routes */}
+      <Route 
+        path="/login" 
+        element={isAuthenticated ? <Navigate to="/" replace /> : <Login />} 
+      />
+      <Route 
+        path="/signup" 
+        element={isAuthenticated ? <Navigate to="/" replace /> : <SignUp />} 
+      />
+
+      {/* Protected Routes */}
       <Route path="/" element={withLayout(Dashboard)} />
-      <Route path="/party" element={withLayout(Party)} />
-      <Route path="/transactions" element={withLayout(Transactions)} />
-      <Route path="/attendance" element={withLayout(Attendance)} />
-      <Route path="/tasks" element={withLayout(Tasks)} />
-      <Route path="/materials" element={withLayout(Materials)} />
-      <Route path="/settings" element={withLayout(Settings)} />
+      <Route path="/roles-access" element={withLayout(RoleAccess)} />
+      <Route path="/business-card" element={withLayout(BusinessCard)} />
+      <Route path="/invite-friends" element={withLayout(InviteFriends)} />
+      <Route path="/give-feedback" element={withLayout(GiveFeedback)} />
+      <Route path="/reports" element={withLayout(Reports)} />
       <Route path="/project/:id" element={withLayout(ProjectOverview)} />
+
+      {/* Catch all - redirect to login or dashboard */}
+      <Route 
+        path="*" 
+        element={<Navigate to={isAuthenticated ? "/" : "/login"} replace />} 
+      />
     </Routes>
   );
 };

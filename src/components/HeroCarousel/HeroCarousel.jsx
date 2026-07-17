@@ -5,28 +5,19 @@ import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
 const SLIDES = [
   {
     id: 1,
-    title: "Build Today.\nBetter Tomorrow.",
-    subtitle: "Streamline your construction projects from start to finish.",
-    cta: "Explore Projects",
-    bg: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&q=80",
+    bg: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1400&q=80",
   },
   {
     id: 2,
-    title: "Track Every\nRupee Spent.",
-    subtitle: "Full financial visibility across all your active sites.",
-    cta: "View Transactions",
-    bg: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1200&q=80",
+    bg: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1400&q=80",
   },
   {
     id: 3,
-    title: "Your Team,\nAlways On Time.",
-    subtitle: "Mark attendance, assign tasks and keep workers accountable.",
-    cta: "Manage Attendance",
-    bg: "https://images.unsplash.com/photo-1590418606746-018840f9eff6?w=1200&q=80",
+    bg: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=1400&q=80",
   },
 ];
 
-const HeroCarousel = ({ onExplore }) => {
+const HeroCarousel = () => {
   const [current, setCurrent] = useState(0);
 
   const prev = useCallback(() =>
@@ -51,19 +42,6 @@ const HeroCarousel = ({ onExplore }) => {
       />
       {/* Dark overlay */}
       <div className="hero-carousel__overlay" />
-
-      {/* Content */}
-      <div className="hero-carousel__content">
-        <h1 className="hero-carousel__title">
-          {slide.title.split("\n").map((line, i) => (
-            <span key={i}>{line}<br /></span>
-          ))}
-        </h1>
-        <p className="hero-carousel__subtitle">{slide.subtitle}</p>
-        <button className="hero-carousel__cta" onClick={onExplore}>
-          {slide.cta} &rsaquo;
-        </button>
-      </div>
 
       {/* Arrows */}
       <button className="hero-carousel__arrow hero-carousel__arrow--left" onClick={prev} aria-label="Previous">

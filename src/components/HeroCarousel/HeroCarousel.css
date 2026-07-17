@@ -20,67 +20,16 @@
   transition: background-image 0.6s ease;
 }
 
-/* Dark gradient overlay so text is always readable */
+/* Light gradient overlay for better visibility of controls */
 .hero-carousel__overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    to right,
-    rgba(10, 18, 50, 0.78) 0%,
-    rgba(10, 18, 50, 0.45) 55%,
-    rgba(10, 18, 50, 0.15) 100%
+    to bottom,
+    rgba(0, 0, 0, 0.1) 0%,
+    rgba(0, 0, 0, 0) 50%,
+    rgba(0, 0, 0, 0.1) 100%
   );
-}
-
-/* Text content */
-.hero-carousel__content {
-  position: relative;
-  z-index: 2;
-  padding: 40px 48px;
-  max-width: 520px;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 12px;
-}
-
-.hero-carousel__title {
-  font-size: 32px;
-  font-weight: 800;
-  color: #ffffff;
-  line-height: 1.2;
-  margin: 0;
-}
-
-.hero-carousel__subtitle {
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.85);
-  line-height: 1.6;
-  margin: 0;
-  max-width: 360px;
-}
-
-.hero-carousel__cta {
-  margin-top: 6px;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: #510400;
-  color: white;
-  border: none;
-  padding: 11px 22px;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.2s;
-  width: fit-content;
-}
-
-.hero-carousel__cta:hover {
-  background: #6f0905;
-  transform: translateY(-2px);
 }
 
 /* Arrows */
@@ -142,13 +91,9 @@
 /* ── Responsive ── */
 @media (max-width: 768px) {
   .hero-carousel { height: 220px; }
-  .hero-carousel__content { padding: 24px 22px; }
-  .hero-carousel__title { font-size: 22px; }
-  .hero-carousel__subtitle { font-size: 13px; }
 }
 
 @media (max-width: 480px) {
   .hero-carousel { height: 190px; }
-  .hero-carousel__title { font-size: 18px; }
   .hero-carousel__arrow { display: none; }
 }
