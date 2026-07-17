@@ -1,67 +1,46 @@
 .modal-overlay {
   position: fixed;
-
-  top: 0;
-  left: 0;
-
-  width: 100%;
-  height: 100vh;
-
+  inset: 0;
   background: rgba(0, 0, 0, 0.45);
-
   display: flex;
-
   justify-content: center;
-
   align-items: center;
-
   z-index: 9999;
-
   padding: 20px;
 }
 
 .project-modal {
   width: 100%;
-
   max-width: 650px;
-
   background: white;
-
   border-radius: 18px;
-
   overflow: hidden;
-
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
-
   animation: popup 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  max-height: 90vh;
 }
 
 @keyframes popup {
   from {
     transform: scale(0.9);
-
     opacity: 0;
   }
-
   to {
     transform: scale(1);
-
     opacity: 1;
   }
 }
 
 .modal-header {
   padding: 18px 24px;
-
   display: flex;
-
   justify-content: space-between;
-
   align-items: center;
-
   background: linear-gradient(90deg, #fbf7f3, #efd8cf, #c78f83, #510400);
-
   color: white;
+  flex-shrink: 0;
 }
 
 .modal-header h2 {
@@ -70,44 +49,42 @@
 
 .modal-header button {
   background: none;
-
   border: none;
-
   font-size: 28px;
-
   cursor: pointer;
-
   color: white;
 }
 
 form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.form-body {
+  flex: 1;
+  overflow-y: auto;
   padding: 24px;
 }
 
 .form-group {
   display: flex;
-
   flex-direction: column;
-
   margin-bottom: 18px;
 }
 
 .form-group label {
   margin-bottom: 8px;
-
   font-weight: 600;
-
   color: #510400;
 }
 
 .form-group input,
 textarea {
   padding: 13px;
-
   border: 1px solid #ddd;
-
   border-radius: 10px;
-
   font-size: 15px;
 }
 
@@ -117,23 +94,17 @@ textarea {
 
 .location-btn {
   margin-top: 12px;
-
   background: #510400;
-
   color: white;
-
   padding: 11px;
-
   border-radius: 8px;
-
   cursor: pointer;
+  border: none;
 }
 
 .date-grid {
   display: grid;
-
   grid-template-columns: 1fr 1fr;
-
   gap: 18px;
 }
 
@@ -143,47 +114,40 @@ textarea {
 
 .react-datepicker__input-container input {
   width: 100%;
-
   padding: 13px;
-
   border-radius: 10px;
-
   border: 1px solid #ddd;
 }
 
 .button-group {
   display: flex;
-
   justify-content: flex-end;
-
   gap: 15px;
-
-  margin-top: 25px;
+  padding: 20px 24px 24px;
+  border-top: 1px solid #f1f5f9;
+  flex-shrink: 0;
 }
 
 .cancel-btn {
   background: #ddd;
-
   padding: 12px 22px;
-
   border-radius: 10px;
+  border: none;
+  cursor: pointer;
 }
 
 .create-btn {
   background: #510400;
-
   color: white;
-
   padding: 12px 22px;
-
   border-radius: 10px;
+  border: none;
+  cursor: pointer;
 }
 
 .error {
   margin-top: 5px;
-
   font-size: 13px;
-
   color: red;
 }
 
@@ -209,19 +173,15 @@ textarea {
    RESPONSIVE — CreateProjectModal
 ============================================================ */
 
-/* Already has a 768px breakpoint. Adding smaller ones: */
-
 @media (max-width: 480px) {
   .modal-overlay {
     padding: 0;
     align-items: flex-end;
-    overflow-y: auto;
   }
 
   .project-modal {
     border-radius: 24px 24px 0 0;
-    max-height: none;
-    min-height: 50vh;
+    max-height: 95vh;
     animation: slideUpModal 0.28s cubic-bezier(0.32, 0.72, 0, 1);
   }
 
@@ -238,9 +198,8 @@ textarea {
     font-size: 18px;
   }
 
-  form {
+  .form-body {
     padding: 16px 18px;
-    padding-bottom: 40px;
   }
 
   .form-group input,
@@ -262,8 +221,7 @@ textarea {
   .button-group {
     flex-direction: column;
     gap: 10px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    padding: 14px 18px 28px;
   }
 
   .button-group button {

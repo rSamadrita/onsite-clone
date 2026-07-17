@@ -97,73 +97,75 @@ const CreateProjectModal = ({ onClose }) => {
         </div>
 
         <form onSubmit={handleSubmit(submit)}>
-          <div className="form-group">
-            <label>Project Name *</label>
-
-            <input
-              placeholder="Dream House"
-              {...register("name", {
-                required: true,
-              })}
-            />
-
-            {errors.name && <p className="error">Project name is required</p>}
-          </div>
-
-          <div className="form-group">
-            <label>Project Address *</label>
-
-            <textarea
-              rows={3}
-              placeholder="Enter Address"
-              {...register("address", {
-                required: true,
-              })}
-            />
-
-            {errors.address && <p className="error">Address required</p>}
-
-            <button
-              type="button"
-              className="location-btn"
-              onClick={getCurrentLocation}
-            >
-              {loadingLocation ? "Fetching..." : "📍 Use Current Location"}
-            </button>
-          </div>
-
-          <input type="hidden" {...register("latitude")} />
-
-          <input type="hidden" {...register("longitude")} />
-
-          <div className="date-grid">
+          <div className="form-body">
             <div className="form-group">
-              <label>Start Date *</label>
+              <label>Project Name *</label>
 
-              <DatePicker
-                selected={startDate}
-                onChange={(date) => setStartDate(date)}
-                dateFormat="dd/MM/yyyy"
-                placeholderText="Select Start Date"
+              <input
+                placeholder="Dream House"
+                {...register("name", {
+                  required: true,
+                })}
               />
+
+              {errors.name && <p className="error">Project name is required</p>}
             </div>
 
             <div className="form-group">
-              <label>End Date *</label>
+              <label>Project Address *</label>
 
-              <DatePicker
-                selected={endDate}
-                onChange={(date) => setEndDate(date)}
-                dateFormat="dd/MM/yyyy"
-                placeholderText="Select End Date"
+              <textarea
+                rows={3}
+                placeholder="Enter Address"
+                {...register("address", {
+                  required: true,
+                })}
               />
+
+              {errors.address && <p className="error">Address required</p>}
+
+              <button
+                type="button"
+                className="location-btn"
+                onClick={getCurrentLocation}
+              >
+                {loadingLocation ? "Fetching..." : "📍 Use Current Location"}
+              </button>
             </div>
-          </div>
 
-          <div className="form-group">
-            <label>Project Value</label>
+            <input type="hidden" {...register("latitude")} />
 
-            <input type="number" placeholder="₹" {...register("value")} />
+            <input type="hidden" {...register("longitude")} />
+
+            <div className="date-grid">
+              <div className="form-group">
+                <label>Start Date *</label>
+
+                <DatePicker
+                  selected={startDate}
+                  onChange={(date) => setStartDate(date)}
+                  dateFormat="dd/MM/yyyy"
+                  placeholderText="Select Start Date"
+                />
+              </div>
+
+              <div className="form-group">
+                <label>End Date *</label>
+
+                <DatePicker
+                  selected={endDate}
+                  onChange={(date) => setEndDate(date)}
+                  dateFormat="dd/MM/yyyy"
+                  placeholderText="Select End Date"
+                />
+              </div>
+            </div>
+
+            <div className="form-group">
+              <label>Project Value</label>
+
+              <input type="number" placeholder="₹" {...register("value")} />
+            </div>
           </div>
 
           <div className="button-group">
