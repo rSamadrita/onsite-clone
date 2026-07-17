@@ -69,20 +69,17 @@ const CreateProjectModal = ({ onClose }) => {
       return;
     }
 
-    if (!endDate) {
-      alert("Please select End Date");
-      return;
+    const projectData = {
+      ...data,
+      startDate: startDate.toISOString(),
+    };
+
+    // Only add endDate if it's selected
+    if (endDate) {
+      projectData.endDate = endDate.toISOString();
     }
 
-    dispatch(
-      addProject({
-        ...data,
-
-        startDate: startDate.toISOString(),
-
-        endDate: endDate.toISOString(),
-      }),
-    );
+    dispatch(addProject(projectData));
 
     onClose();
   };
@@ -150,13 +147,15 @@ const CreateProjectModal = ({ onClose }) => {
               </div>
 
               <div className="form-group">
-                <label>End Date *</label>
+                <label>End Date</label>
 
                 <DatePicker
                   selected={endDate}
                   onChange={(date) => setEndDate(date)}
                   dateFormat="dd/MM/yyyy"
                   placeholderText="Select End Date"
+                  minDate={startDate}
+                  disabled={!startDate}
                 />
               </div>
             </div>
